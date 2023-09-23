@@ -1,0 +1,32 @@
+.profile__button-account * {
+    --svg-profile: url("../../images/profile.svg");
+}
+
+li.profile__button-account {
+    border-radius: 1rem;
+    position: relative;
+}
+
+li.profile__button-account a {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor: pointer;
+  min-height: 32px;
+  align-items: center;
+}
+
+.profile__button-icon {
+  border-radius: 100%;
+  place-items: center;
+  min-width: 26px;
+  min-height: 26px;
+  background-image: var(--svg-profile);
+  background-color: var(--color-profile-light-bg);
+  -webkit-mask: unset;
+  mask: unset;
+}
+
+.header__dark .profile__button-icon {
+  background-color: var(--color-dark-bg);
+}

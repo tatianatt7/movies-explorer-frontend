@@ -1,0 +1,45 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts.css);
+
+*{
+  --color-black: #000;
+  --color-white: #fff;
+
+  --color-main: #073042;
+  --color-dark-bg: #313131;
+  --color-dark-button: #303030;
+  --color-dark-bg-main: #202020;
+  --color-dark-outline: #2F2F2F;
+  --color-dark-bg-accent: #272727;
+  
+  --color-card: #222222;
+  --color-card-button-bg: #424242;
+  
+  --color-hr: #DADADA;
+  --color-text: #8B8B8B;
+  --color-error: #EE3465;
+  --color-url: #4285F4;
+  --color-el: #3DDC84;
+  --color-profile-light-bg: #0f4157;
+}
+
+body {
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+  margin: 0 auto;
+  padding: 0;
+  min-height: 100vh;
+  min-width: 320px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  background: var(--color-dark-bg-main);
+  color: var(--color-white);
+
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+ /* * { outline: 1px solid red; }  */

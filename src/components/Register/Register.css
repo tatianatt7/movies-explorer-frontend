@@ -1,0 +1,117 @@
+section.register {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: 70px;
+  position: relative;
+}
+
+.register__header a {
+  width: fit-content;
+}
+
+.register__header,
+.register__form {
+  min-width: 396px;
+  display: flex;
+  flex-direction: column;
+}
+
+.register__title {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+  margin: 37px 0;
+}
+
+.register__label {
+  font-size: 10px;
+  line-height: 12px;
+  padding-bottom: 12px;
+}
+
+.register__input {
+  height: 46px;
+  background-color: var(--color-dark-outline);
+  color: var(--color-white);
+  border-radius: 8px;
+  border: none;
+  font-size: 12px;
+  text-indent: 14px;
+  margin-bottom: 16px;
+}
+
+.register__form button.register__button {
+  margin-top: 62px;
+  background-color: var(--color-url);
+  color: var(--color-white);
+  height: 45px;
+}
+
+.register__form button.register__button:disabled {
+  background-color: var(--color-text);
+}
+
+.register__bottom {
+  margin-top: 16px;
+  display: inline-flex;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.register__bottom a {
+  color: var(--color-url);
+}
+
+.register__input:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 2px 2px #555;
+}
+
+@media (max-width: 768px) {
+  section.register {
+    top: 232px;
+  }
+}
+
+@media (max-width: 320px) {
+    .register__header, .register__form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 260px;
+    }
+
+    section.register {
+        top: 56px;
+    }
+
+    .register__header, .register__form {
+        min-width: 260px;
+    }
+
+    .register__title {
+        margin: 47px 0 77px;
+    }
+
+    .register__form input, .register__form button {
+        align-self: stretch;
+    }
+
+    .register__form label {
+        align-self: flex-start;
+    }
+
+    .register__form button.register__button {
+        margin-top: 150px;
+    }
+
+    .register__bottom {
+        font-size: 12px;
+    }
+
+  .register .form__error {
+    align-self: start;
+  }
+}

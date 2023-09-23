@@ -1,0 +1,26 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App main {
+  display: block;
+  flex: 1 0 auto;
+}
+
+.form__error {
+  font-size: 10px;
+  color: var(--color-error);
+}
+
+@media (max-width: 1279px) {
+  body {
+    max-width: 768px;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    max-width: 320px;
+  }
+}
