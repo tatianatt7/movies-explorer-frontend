@@ -1,11 +1,15 @@
 import './Profile.css';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = ({ onSignOut, isProfileSaved }) => {
+  const navigate = useNavigate();
   const [edit, setStateEdit] = useState(false);
-  const [values, setValues] = useState({email: 'example@mail.net'});
+  const [values, setValues] = useState({ email: 'example@mail.net' });
 
-  function is_disabled(v) { return  (!'name' in v || !v.name ) }
+  function is_disabled(v) {
+    return !'name' in v || !v.name;
+  }
 
   return (
     <>
@@ -17,12 +21,13 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
             <input
               type="text"
               name="name"
+              placeholder="Имя"
               className="profile__input"
               minLength={2}
               maxLength={40}
               required
-              value={values.name || ""}
-              onChange={(e) => setValues({ ...values, name:e.target.value })}
+              value={values.name || ''}
+              onChange={e => setValues({ ...values, name: e.target.value })}
             />
           </div>
           <div className="profile__line"></div>
@@ -31,10 +36,11 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
             <input
               type="email"
               name="email"
+              placeholder="E-mail"
               className="profile__input"
               required
-              value={values.email || ""}
-              onChange={(e) => setValues({ ...values, email:e.target.value })}
+              value={values.email || ''}
+              onChange={e => setValues({ ...values, email: e.target.value })}
             />
           </div>
           <div className="form__error"></div>
@@ -45,13 +51,27 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
           )}
           <div className="profile__bottom">
             {edit ? (
-              <button type="submit" disabled={is_disabled(values)} className="profile__button-save">
+              <button
+                type="submit"
+                disabled={is_disabled(values)}
+                className="profile__button-save"
+              >
                 Сохранить
               </button>
             ) : (
               <>
-                <button className="profile__button-edit" onClick={() => setStateEdit(!edit)}>Редактировать</button>
-                <button onClick={onSignOut} className="profile__logout">
+                <button
+                  type="button"
+                  className="profile__button-edit"
+                  onClick={() => setStateEdit(!edit)}
+                >
+                  Редактировать
+                </button>
+                <button
+                  type="button"
+                  onClick={() => navigate('/')}
+                  className="profile__logout"
+                >
                   Выйти из аккаунта
                 </button>
               </>

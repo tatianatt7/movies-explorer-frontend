@@ -4,7 +4,7 @@ import './AboutMe.css';
 
 const AboutMe = () => {
   return (
-    <section className="about-me">
+    <section className="about-me" id="student">
       <h2 className="about-me__title">Студент</h2>
       <div className="about-me__container">
         <div className="about-me__description">
@@ -24,7 +24,7 @@ const AboutMe = () => {
             Github
           </a>
         </div>
-        <img src={photo} alt="Фотография" className="about-me__photo" />
+        <img src={photo} alt="Моё Фото" className="about-me__photo" />
       </div>
       <div className="portfolio">
         <h3 className="portfolio__title">Портфолио</h3>
@@ -37,8 +37,8 @@ const AboutMe = () => {
               target="_blank"
             >
               Статичный сайт
+              <span>↗️</span>
             </a>
-            <span>↗️</span>
           </li>
           <li className="portfolio__list">
             <a
@@ -48,8 +48,8 @@ const AboutMe = () => {
               target="_blank"
             >
               Адаптивный сайт
+              <span>↗️</span>
             </a>
-            <span>↗️</span>
           </li>
           <li className="portfolio__list">
             <a
@@ -59,8 +59,8 @@ const AboutMe = () => {
               target="_blank"
             >
               Одностраничное приложение
+              <span>↗️</span>
             </a>
-            <span>↗️</span>
           </li>
         </ul>
       </div>

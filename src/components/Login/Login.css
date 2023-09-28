@@ -10,7 +10,8 @@ section.login {
     width: fit-content;
 }
 
-.login__header, .login__form {
+.login__header,
+.login__form {
     min-width: 396px;
     display: flex;
     flex-direction: column;
@@ -60,21 +61,25 @@ section.login {
 
 .login__bottom a {
     color: var(--color-url);
+    text-decoration: none;
 }
 
-.login__input:focus, textarea:focus {
+.login__input:focus,
+textarea:focus {
     outline: none;
     box-shadow: 0 0 2px 2px #555;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
     section.login {
         top: 232px;
     }
 }
 
-@media (max-width: 320px) {
-    .login__header, .login__form {
+@media (max-width: 767px) {
+
+    .login__header,
+    .login__form {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -84,7 +89,8 @@ section.login {
         top: 56px;
     }
 
-    .login__header, .login__form {
+    .login__header,
+    .login__form {
         min-width: 260px;
     }
 
@@ -92,7 +98,8 @@ section.login {
         margin: 47px 0 77px;
     }
 
-    .login__form input, .login__form button {
+    .login__form input,
+    .login__form button {
         align-self: stretch;
     }
 

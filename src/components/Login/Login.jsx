@@ -1,6 +1,6 @@
-import React from "react";
-import "./Login.css";
-import logo from "../../images/logo.svg";
+import React from 'react';
+import './Login.css';
+import logo from '../../images/logo.svg';
 
 const Login = () => {
   return (
@@ -36,14 +36,14 @@ const Login = () => {
           minLength={6}
           maxLength={200}
         />
-        <span className="form_error"></span>
+        <span className="form__error"></span>
         <button className="login__btn" type="submit">
           Войти
         </button>
       </form>
       <div className="login__bottom">
         <span>Ещё не зарегистрированы?</span>
-        <a href="register" className="login__link">
+        <a href="/signup" className="login__link">
           Регистрация
         </a>
       </div>

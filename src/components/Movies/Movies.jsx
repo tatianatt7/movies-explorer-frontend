@@ -30,10 +30,16 @@ const Movies = () => {
   return (
     <>
       <section className="movies">
+        <h2>Поиск фильмов</h2>
         <div className="movies__content">
           <SearchForm />
 
-          <MoviesCardList isSavedMoviesPage={false} movies={getMovies(width)} />
+          <MoviesCardList
+            isShowMoreButton={true}
+            isShowDeleteBtn={false}
+            isSavedMoviesPage={false}
+            movies={getMovies(width)}
+          />
         </div>
       </section>
     </>

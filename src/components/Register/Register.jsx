@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Register.css";
-import logo from "../../images/logo.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Register.css';
+import logo from '../../images/logo.svg';
 
 const Register = () => {
   return (
@@ -39,7 +39,7 @@ const Register = () => {
           name="email"
           placeholder="email"
           required
-          pattern={"^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$"}
+          pattern={'^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$'}
         />
         <div className="register__error"></div>
         <label className="register__label" htmlFor="password">
@@ -62,7 +62,7 @@ const Register = () => {
       </form>
       <div className="register__bottom">
         <span>Уже зарегистрированы?</span>
-        <Link to="/login" className="register__link">
+        <Link to="/signin" className="register__link">
           Войти
         </Link>
       </div>

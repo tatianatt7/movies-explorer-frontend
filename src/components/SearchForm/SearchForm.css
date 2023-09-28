@@ -1,7 +1,9 @@
 .search {
     text-align: center;
     margin-top: 60px;
-    margin-bottom: 144px;
+    margin-bottom: 80px;
+    margin-left: 70px;
+    margin-right: 70px;
 }
 
 form.search__form {
@@ -10,6 +12,8 @@ form.search__form {
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
+    margin: 0 auto;
+    border-bottom: 1px solid var(--color-dark-bg);
 }
 
 .search__button {
@@ -25,9 +29,16 @@ form.search__form {
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s ease;
-    transform: translate(-40px, 0);
-    flex: 0 1 34px;
+    transform: translate(-23px, 0);
+    position: relative;
+    left: 50%;
+    margin-top: -46px;
 }
+
+input.search__input::placeholder {
+    font-size: 12px;
+}
+
 .search__input {
     height: 44px;
     background-color: var(--color-dark-outline);
@@ -36,12 +47,12 @@ form.search__form {
     color: var(--color-white);
     border: none;
     font-size: 14px;
-    width: 80%;
-    margin-left: 25px;
+    width: 100%;
 }
 
-.search__input:focus, textarea:focus {
-    outline: none;
+.search__input:focus,
+textarea:focus {
+    outline: solid var(--color-text);
 }
 
 .search__input::placeholder {
@@ -49,23 +60,30 @@ form.search__form {
     line-height: 20px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
     .search {
         text-align: center;
-        margin-top: 80px;
-        margin-bottom: 87px;
+        margin-top: 79px;
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-bottom: 80px;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
     .search {
         text-align: center;
         margin-top: 80px;
-        margin-bottom: 57px;
+        margin-bottom: 49px;
+        margin-left: 14px;
+        margin-right: 15px;
     }
 
-    .search__button {
-        right: 20px;
-        top: 6px;
+    input.search__input::placeholder {
+        font-size: 11px;
+    }
+
+    .search__input {
+        text-indent: 17px;
     }
 }

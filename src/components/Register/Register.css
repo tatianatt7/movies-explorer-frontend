@@ -61,6 +61,7 @@ section.register {
 
 .register__bottom a {
   color: var(--color-url);
+  text-decoration: none;
 }
 
 .register__input:focus,
@@ -69,47 +70,51 @@ textarea:focus {
   box-shadow: 0 0 2px 2px #555;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
   section.register {
     top: 232px;
   }
 }
 
-@media (max-width: 320px) {
-    .register__header, .register__form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: 260px;
-    }
+@media (max-width: 767px) {
 
-    section.register {
-        top: 56px;
-    }
+  .register__header,
+  .register__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 260px;
+  }
 
-    .register__header, .register__form {
-        min-width: 260px;
-    }
+  section.register {
+    top: 56px;
+  }
 
-    .register__title {
-        margin: 47px 0 77px;
-    }
+  .register__header,
+  .register__form {
+    min-width: 260px;
+  }
 
-    .register__form input, .register__form button {
-        align-self: stretch;
-    }
+  .register__title {
+    margin: 47px 0 77px;
+  }
 
-    .register__form label {
-        align-self: flex-start;
-    }
+  .register__form input,
+  .register__form button {
+    align-self: stretch;
+  }
 
-    .register__form button.register__button {
-        margin-top: 150px;
-    }
+  .register__form label {
+    align-self: flex-start;
+  }
 
-    .register__bottom {
-        font-size: 12px;
-    }
+  .register__form button.register__button {
+    margin-top: 150px;
+  }
+
+  .register__bottom {
+    font-size: 12px;
+  }
 
   .register .form__error {
     align-self: start;

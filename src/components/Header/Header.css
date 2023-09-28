@@ -21,19 +21,19 @@
     left: 70px;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1279px) {
     .header__logo {
         
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1279px) {
     .header__logo {
         left: 30px;
     }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 767px) {
     .header__logo {
         left: 14px;
     }

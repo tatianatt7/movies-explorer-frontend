@@ -1,7 +1,7 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts.css);
 
-*{
+* {
   --color-black: #000;
   --color-white: #fff;
 
@@ -11,10 +11,10 @@
   --color-dark-bg-main: #202020;
   --color-dark-outline: #2F2F2F;
   --color-dark-bg-accent: #272727;
-  
+
   --color-card: #222222;
   --color-card-button-bg: #424242;
-  
+
   --color-hr: #DADADA;
   --color-text: #8B8B8B;
   --color-error: #EE3465;
@@ -38,8 +38,14 @@ body {
   background: var(--color-dark-bg-main);
   color: var(--color-white);
 
-  max-width: 1280px;
+  max-width: 1279px;
   margin: 0 auto;
 }
 
- /* * { outline: 1px solid red; }  */
+a:hover,
+button:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+/* * { outline: 1px solid red; }  */

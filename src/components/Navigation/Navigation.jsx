@@ -4,7 +4,6 @@ import './Navigation.css';
 import Menu from '../Menu/Menu';
 import ProfileButton from '../ProfileButton/ProfileButton';
 
-
 const Navigation = ({ loggedIn }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation().pathname;
@@ -42,7 +41,7 @@ const Navigation = ({ loggedIn }) => {
               </Link>
             </li>
           </ul>
-          <ul>
+          <ul className="profile">
             <ProfileButton />
           </ul>
           {!isMenuOpen ? (
@@ -64,12 +63,12 @@ const Navigation = ({ loggedIn }) => {
           <ul>{/* left navigation links */}</ul>
           <ul className="navigation__auth">
             <li>
-              <Link to="/register" className="navigation__link">
+              <Link to="/signup" className="navigation__link">
                 Регистрация
               </Link>
             </li>
             <li>
-              <Link to="/login" className="navigation__button">
+              <Link to="/signin" className="navigation__button">
                 Войти
               </Link>
             </li>

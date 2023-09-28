@@ -91,7 +91,7 @@
     margin: 0;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1279px) {
     .about-project__description {
         gap: 40px;
     }
@@ -106,11 +106,11 @@
     }
 }
 
-@media (max-width: 768px) {
-        .about-project__description {
+@media (max-width: 1279px) {
+    .about-project__description {
         gap: 13px;
     }
-    
+
     .about-project {
         height: 404px;
         padding: 90px 50px;
@@ -142,7 +142,7 @@
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .about-project__description {
         grid-template-columns: auto;
         padding: 60px 0 0;

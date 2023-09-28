@@ -17,7 +17,6 @@ const SearchForm = () => {
           className="search__input"
           required
           autoComplete="off"
-          autoCorrect="off"
           name="searchRequest"
         />
         <button type="submit" className="search__button">

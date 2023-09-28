@@ -5,9 +5,10 @@ import { getUrl } from '../../utils/constants';
 
 const SavedMovies = () => {
   return (
-    <>    
-      <section className='saved-movies'>
-         <div className='saved-movies__content'>
+    <>
+      <section className="saved-movies">
+        <h2>Сохраненные фильмы</h2>
+        <div className="saved-movies__content">
           <SearchForm />
           <MoviesCardList
             isSavedMoviesPage={true}
@@ -18,7 +19,7 @@ const SavedMovies = () => {
             onDelete={() => {}}
             isShowMoreButton={false}
           />
-         </div>
+        </div>
       </section>
     </>
   );

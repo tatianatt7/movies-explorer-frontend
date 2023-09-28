@@ -21,7 +21,7 @@ button.page__back-btn {
     color: var(--color-url);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
     button.page__back-btn {
         top: 185px;
         font-size: 14px;
@@ -32,7 +32,7 @@ button.page__back-btn {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     span.page__notfound {
         font-size: 12px;
     }

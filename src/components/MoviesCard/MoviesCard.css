@@ -39,7 +39,6 @@
     overflow: hidden;
     text-align: start;
     margin: 0;
-    
 }
 
 .card__duration {
@@ -59,7 +58,9 @@
     cursor: pointer;
 }
 
-.card__btn-saved, .card__btn-unsave, .card__btn-delete {
+.card__btn-saved,
+.card__btn-unsave,
+.card__btn-delete {
     width: 14px;
     height: 12px;
     border: none;
@@ -67,10 +68,11 @@
     place-items: center;
 }
 
-.card__btn-saved, .card__btn-unsave {
+.card__btn-saved,
+.card__btn-unsave {
     display: grid;
-    left: 317px;
-    bottom: 86px;
+    left: 326px;
+    bottom: 77px;
 }
 
 .card__btn-saved {
@@ -83,8 +85,8 @@
 
 .card__btn-delete {
     background: no-repeat var(--svg-movie-btn-delete);
-    left: 151px;
-    bottom: 67px;
+    left: 154px;
+    bottom: 61px;
 }
 
 .card__link {
@@ -124,7 +126,7 @@
     padding: 2px 5px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
     .card__image {
         height: 190px;
     }
@@ -133,9 +135,10 @@
         flex: 0 1 170px;
     }
 
-    .card__btn-saved, .card__btn-unsave {
-        left: 294px;
-        bottom: 82px;
+    .card__btn-saved,
+    .card__btn-unsave {
+        left: 303px;
+        bottom: 72px;
     }
 
     .card__description {
@@ -143,19 +146,20 @@
     }
 
     .card__btn-delete {
-        left: 140px;
-        bottom: 62px;
+        left: 143px;
+        bottom: 56px;
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     .card__image {
         height: 168px;
     }
 
-    .card__btn-saved, .card__btn-unsave {
-        left: 259px;
-        bottom: 84px;
+    .card__btn-saved,
+    .card__btn-unsave {
+        left: 268px;
+        bottom: 73px;
     }
 
     .card__name {
@@ -163,7 +167,7 @@
     }
 
     .card__btn-delete {
-        left: 125px;
-        bottom: 64px;
+        left: 128px;
+        bottom: 57px;
     }
 }

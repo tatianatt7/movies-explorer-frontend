@@ -1,10 +1,10 @@
 .profile__button-account * {
-    --svg-profile: url("../../images/profile.svg");
+  --svg-profile: url("../../images/profile.svg");
 }
 
 li.profile__button-account {
-    border-radius: 1rem;
-    position: relative;
+  border-radius: 1rem;
+  position: relative;
 }
 
 li.profile__button-account a {
@@ -27,6 +27,6 @@ li.profile__button-account a {
   mask: unset;
 }
 
-.header__dark .profile__button-icon {
+.header-dark .profile__button-icon {
   background-color: var(--color-dark-bg);
 }

@@ -28,8 +28,8 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+          <Route path="/signin" element={<Login />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/saved-movies" element={<SavedMovies />} />
           <Route path="/profile" element={<Profile />} />

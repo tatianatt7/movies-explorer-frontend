@@ -4,12 +4,14 @@ import logo from '../../images/logo.svg';
 import './Header.css';
 
 export const Header = ({ loggedIn }) => {
-const location = useLocation();
+  const location = useLocation();
 
   return (
-    <header className={ location.pathname == '/' ? 'header' : 'header header__dark' }>
+    <header
+      className={location.pathname == '/' ? 'header' : 'header header-dark'}
+    >
       <Link className="header__logo" to="/">
-        <img src={logo} alt="Логотип"  />
+        <img src={logo} alt="Логотип" />
       </Link>
 
       <Navigation loggedIn={loggedIn} />

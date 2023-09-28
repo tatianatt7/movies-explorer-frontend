@@ -79,12 +79,13 @@ section.profile {
     background-color: var(--color-text);
 }
 
-.profile__input:focus, textarea:focus {
+.profile__input:focus,
+textarea:focus {
     outline: none;
-    /* box-shadow: 0 0 2px 2px #555; */
+    background: var(--color-dark-outline);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
     .profile__form {
         margin-top: 75px;
     }
@@ -98,7 +99,7 @@ section.profile {
     }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 767px) {
     section.profile {
         top: 54px;
     }

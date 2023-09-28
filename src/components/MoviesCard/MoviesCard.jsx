@@ -27,7 +27,7 @@ const MoviesCard = ({
         />
       )}
       {isShowDeleteBtn && (
-        <button type="button" className="card__btn-delete" alt="кнопка Удалить" ></button>
+        <button type="button" className="card__btn-delete"></button>
       )}
     </li>
   );

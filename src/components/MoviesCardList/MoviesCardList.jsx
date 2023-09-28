@@ -1,7 +1,12 @@
-import MoviesCard from "../MoviesCard/MoviesCard";
-import "./MoviesCardList.css";
+import MoviesCard from '../MoviesCard/MoviesCard';
+import './MoviesCardList.css';
 
-const MoviesCardList = ({ movies, isShowMoreButton, isShowSaveBtn, isShowDeleteBtn = true }) => {
+const MoviesCardList = ({
+  movies,
+  isShowMoreButton,
+  isShowSaveBtn,
+  isShowDeleteBtn = true,
+}) => {
   return (
     <section className="cards">
       <ul className="cards__list">
@@ -17,7 +22,9 @@ const MoviesCardList = ({ movies, isShowMoreButton, isShowSaveBtn, isShowDeleteB
         })}
       </ul>
       {isShowMoreButton && (
-        <button className="card__btn-more" type="button">Ещё</button>
+        <button className="cards__btn-more" type="button">
+          Ещё
+        </button>
       )}
     </section>
   );

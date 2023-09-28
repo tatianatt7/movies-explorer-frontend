@@ -4,7 +4,9 @@ section#techs {
     background-color: var(--color-dark-bg-accent);
 }
 
-.techs h2, .techs h3, .techs p {
+.techs h2,
+.techs h3,
+.techs p {
     color: var(--color-white)
 }
 
@@ -34,7 +36,8 @@ section#techs {
     margin: 26px auto 0 auto;
 }
 
-.techs h3, .techs p {
+.techs h3,
+.techs p {
     text-align: center;
     width: 460px;
 }
@@ -47,7 +50,6 @@ ul.techs__list {
     margin: 100px auto;
     padding: 0;
 }
-
 
 .techs__icon {
     display: block;
@@ -64,7 +66,7 @@ ul.techs__list {
     color: var(--color-white);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1279px) {
     section#techs {
         height: 388px;
         padding: 90px 50px;
@@ -98,11 +100,12 @@ ul.techs__list {
     }
 }
 
-@media (max-width: 320px) {
-section#techs {
-    height: 549px;
-    padding: 102px 14px;
-}
+@media (max-width: 767px) {
+    section#techs {
+        height: 549px;
+        padding: 102px 14px;
+    }
+
     .techs h2 {
         font-size: 18px;
         padding-bottom: 28px;
@@ -115,33 +118,34 @@ section#techs {
         margin: 60px auto 0 auto;
     }
 
-    .techs h3, .techs p {
+    .techs h3,
+    .techs p {
         width: 280px;
     }
 
     .techs p {
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: -0.04em;
-    margin: 24px auto 0 auto;
-}
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: -0.04em;
+        margin: 24px auto 0 auto;
+    }
 
-      .techs__icon {
-    padding: 22px 0;
-    min-width: 84px;
-    font-size: 11px;
-    letter-spacing: unset;
-  }
+    .techs__icon {
+        padding: 22px 0;
+        min-width: 84px;
+        font-size: 11px;
+        letter-spacing: unset;
+    }
 
-ul.techs__list {
-    display: grid;
-    grid-template-columns: repeat(2, 84px);
-    grid-template-rows: repeat(5, 57px);
-    margin: 0 auto;
-    padding: 0;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 50px;
-}
+    ul.techs__list {
+        display: grid;
+        grid-template-columns: repeat(2, 84px);
+        grid-template-rows: repeat(5, 57px);
+        margin: 0 auto;
+        padding: 0;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 50px;
+    }
 }

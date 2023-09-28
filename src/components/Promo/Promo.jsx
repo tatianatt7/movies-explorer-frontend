@@ -7,7 +7,7 @@ const Promo = () => {
     <>
       <section className="promo">
         <div className="promo__container">
-          <img className="landing-logo" src={promo} alt="Landing Logo" />
+          <img className="landing-logo" src={promo} alt="Лого" />
           <h1 className="promo__title">
             Учебный проект студента факультета Веб-разработки.
           </h1>

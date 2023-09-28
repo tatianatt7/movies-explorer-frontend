@@ -13,14 +13,11 @@
   color: var(--color-error);
 }
 
-@media (max-width: 1279px) {
-  body {
-    max-width: 768px;
-  }
+.saved-movies>h2,
+.movies>h2 {
+  display: none;
 }
 
-@media (max-width: 767px) {
-  body {
-    max-width: 320px;
-  }
+body {
+  margin: 0 auto;
 }
