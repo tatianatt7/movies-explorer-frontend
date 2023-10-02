@@ -16,7 +16,7 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
       <section className="profile">
         <h1 className="profile__title">Привет, {values.name}!</h1>
         <form className="profile__form form">
-          <div className="profile__value">
+          <div className="profile__value profile__value-name">
             <label className="profile__label">Имя</label>
             <input
               type="text"
@@ -30,8 +30,8 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
               onChange={e => setValues({ ...values, name: e.target.value })}
             />
           </div>
-          <div className="profile__line"></div>
-          <div className="profile__value">
+          <hr></hr>
+          <div className="profile__value profile__value-password">
             <label className="profile__label">E-mail</label>
             <input
               type="email"

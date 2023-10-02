@@ -3,10 +3,10 @@ import './ProfileButton.css';
 
 export const ProfileButton = () => {
   return (
-    <li className="profile__button-account">
+    <li className="navigation__button-account">
       <Link to="/profile">
         Аккаунт
-        <div className="profile__button-icon" />
+        <div className="navigation__button-icon" />
       </Link>
     </li>
   );

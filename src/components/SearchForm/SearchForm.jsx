@@ -4,7 +4,7 @@ import find from '../../images/find.svg';
 
 const SearchForm = () => {
   return (
-    <section className="search">
+    <div className="search">
       <form
         className="search__form form"
         name="search-saved-movie-form"
@@ -24,7 +24,7 @@ const SearchForm = () => {
         </button>
         <FilterBox isMovieFilter={() => {}} onFilter={() => {}} />
       </form>
-    </section>
+    </div>
   );
 };
 

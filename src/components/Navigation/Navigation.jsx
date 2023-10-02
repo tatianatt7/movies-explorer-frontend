@@ -41,7 +41,7 @@ const Navigation = ({ loggedIn }) => {
               </Link>
             </li>
           </ul>
-          <ul className="profile">
+          <ul className="navigation__mobile">
             <ProfileButton />
           </ul>
           {!isMenuOpen ? (

@@ -12,16 +12,37 @@ section.profile {
     font-weight: 500;
 }
 
-.profile__line {
-    border: 1px solid var(--color-hr);
+.profile hr {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: var(--color-hr);
 }
 
 .profile__bottom {
     display: flex;
     position: relative;
     gap: 16px;
-    top: 228px;
+    top: 218px;
     flex-direction: column;
+}
+
+.profile__value-name input {
+    line-height: 20px;
+    padding-bottom: 12px;
+}
+
+.profile__value-name label {
+    align-self: self-start;
+}
+
+.profile__value-password input {
+    padding-top: 10px;
+    line-height: 20px;
+}
+
+.profile__value-password label {
+    align-self: end;
 }
 
 .profile__bottom button {
@@ -49,7 +70,6 @@ section.profile {
 
 .profile__label {
     min-width: 50px;
-    align-self: center;
 }
 
 .profile__input {
@@ -94,6 +114,10 @@ textarea:focus {
         top: 220px;
     }
 
+    .profile__value-name label {
+        align-self: center;
+    }
+
     .profile__bottom {
         top: 211px;
     }
@@ -111,6 +135,10 @@ textarea:focus {
 
     .profile__bottom {
         top: 377px;
+    }
+
+    .profile__value-name label {
+        align-self: self-start;
     }
 
     .profile__bottom button {

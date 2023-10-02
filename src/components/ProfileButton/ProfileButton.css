@@ -1,13 +1,13 @@
-.profile__button-account * {
+.navigation__button-account * {
   --svg-profile: url("../../images/profile.svg");
 }
 
-li.profile__button-account {
+li.navigation__button-account {
   border-radius: 1rem;
   position: relative;
 }
 
-li.profile__button-account a {
+li.navigation__button-account a {
   display: flex;
   flex-direction: row;
   gap: 10px;
@@ -16,7 +16,7 @@ li.profile__button-account a {
   align-items: center;
 }
 
-.profile__button-icon {
+.navigation__button-icon {
   border-radius: 100%;
   place-items: center;
   min-width: 26px;
@@ -27,6 +27,6 @@ li.profile__button-account a {
   mask: unset;
 }
 
-.header-dark .profile__button-icon {
+.header-dark .navigation__button-icon {
   background-color: var(--color-dark-bg);
 }

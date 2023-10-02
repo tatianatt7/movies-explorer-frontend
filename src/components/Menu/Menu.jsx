@@ -5,16 +5,16 @@ import ProfileButton from '../ProfileButton/ProfileButton';
 
 const Menu = ({ onClose }) => {
   return (
-    <div className="mobile__menu">
-      <div className="menu__backdrop">
-        <div className="menu__container">
+    <div className="navigation__mobile-wrap">
+      <div className="navigation__mobile-backdrop">
+        <div className="navigation__mobile-container">
           <button
             type="button"
-            className="menu__close-btn"
+            className="navigation__mobile-close-btn"
             onClick={() => onClose()}
           />
           <nav>
-            <ul className="menu__ul">
+            <ul className="navigation__mobile-ul">
               <li>
                 <NavLink
                   exact="true"

@@ -84,7 +84,7 @@
     visibility: hidden;
 }
 
-.navigation>ul>li.profile__button-account {
+.navigation__button-account {
     right: 73px;
     top: 5px;
 }
@@ -104,7 +104,7 @@
     }
 
     .navigation__movies li,
-    ul:has(.profile__button-account) {
+    ul:has(.navigation__button-account) {
         display: none;
     }
 }
