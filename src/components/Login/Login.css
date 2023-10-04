@@ -46,6 +46,7 @@ section.login {
     background-color: var(--color-url);
     color: var(--color-white);
     height: 45px;
+    border: unset;
 }
 
 .login__form button.login__btn:disabled {

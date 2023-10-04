@@ -46,6 +46,7 @@ section.register {
   background-color: var(--color-url);
   color: var(--color-white);
   height: 45px;
+  border: unset;
 }
 
 .register__form button.register__button:disabled {

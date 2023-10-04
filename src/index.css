@@ -21,6 +21,7 @@
   --color-url: #4285F4;
   --color-el: #3DDC84;
   --color-profile-light-bg: #0f4157;
+  --color-backdrop: rgb(0 0 0 / 30%)
 }
 
 body {
