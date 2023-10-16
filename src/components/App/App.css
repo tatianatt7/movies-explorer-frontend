@@ -1,0 +1,23 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App main {
+  display: block;
+  flex: 1 0 auto;
+}
+
+.form__error {
+  font-size: 10px;
+  color: var(--color-error);
+}
+
+.saved-movies>h2,
+.movies>h2 {
+  display: none;
+}
+
+body {
+  margin: 0 auto;
+}

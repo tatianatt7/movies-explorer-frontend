@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    background: var(--color-main);
+    height: 74px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    padding: 0;
+    margin: 0;
+    align-content: stretch;
+}
+.header-dark {
+    background: var(--color-dark-bg-main);
+}
+
+.header__logo {
+    position: relative;
+    top: 18px;
+    height: 38px;
+    width: 38px;
+    left: 70px;
+}
+
+
+@media screen and (max-width: 1279px) {
+    .header__logo {
+        left: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header__logo {
+        left: 14px;
+    }
+}

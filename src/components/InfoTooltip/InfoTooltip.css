@@ -1,0 +1,7 @@
+.popup {
+  visibility: hidden;
+}
+
+.popup__opened {
+  visibility: visible;
+}

@@ -1,1 +1,7 @@
-# movies-explorer-frontend
+
+# Frontend дипломного проекта 3 этап movies-explorer-frontend 
+
+## Ссылки на макет в Figma 
+
+Дизайн макета из figma dark-3
+

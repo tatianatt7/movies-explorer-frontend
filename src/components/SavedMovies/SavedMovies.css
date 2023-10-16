@@ -1,0 +1,15 @@
+section.saved-movies {
+    min-height: 790px;
+}
+
+@media (max-width: 1279px) {
+    section.saved-movies {
+        min-height: 970px;
+    }
+}
+
+@media (max-width: 767px) {
+    section.saved-movies {
+        min-height: 785px;
+    }
+}

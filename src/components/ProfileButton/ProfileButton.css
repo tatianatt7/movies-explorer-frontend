@@ -1,0 +1,32 @@
+.navigation__button-account * {
+  --svg-profile: url("../../images/profile.svg");
+}
+
+li.navigation__button-account {
+  border-radius: 1rem;
+  position: relative;
+}
+
+li.navigation__button-account a {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor: pointer;
+  min-height: 32px;
+  align-items: center;
+}
+
+.navigation__button-icon {
+  border-radius: 100%;
+  place-items: center;
+  min-width: 26px;
+  min-height: 26px;
+  background-image: var(--svg-profile);
+  background-color: var(--color-profile-light-bg);
+  -webkit-mask: unset;
+  mask: unset;
+}
+
+.header-dark .navigation__button-icon {
+  background-color: var(--color-dark-bg);
+}

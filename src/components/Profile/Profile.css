@@ -1,0 +1,148 @@
+section.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    top: 58px;
+    position: relative;
+}
+
+.profile__title {
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 500;
+}
+
+.profile hr {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    color: var(--color-hr);
+}
+
+.profile__bottom {
+    display: flex;
+    position: relative;
+    gap: 16px;
+    top: 218px;
+    flex-direction: column;
+}
+
+.profile__value-name input {
+    line-height: 20px;
+    padding-bottom: 12px;
+}
+
+.profile__value-name label {
+    align-self: self-start;
+}
+
+.profile__value-password input {
+    padding-top: 10px;
+    line-height: 20px;
+}
+
+.profile__value-password label {
+    align-self: end;
+}
+
+.profile__bottom button {
+    font-size: 13px;
+    line-height: 15px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.profile__form {
+    min-width: 410px;
+    margin-top: 105px;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    flex-wrap: wrap;
+}
+
+.profile__value {
+    font-size: 11px;
+    display: flex;
+    flex-direction: row;
+}
+
+.profile__label {
+    min-width: 50px;
+}
+
+.profile__input {
+    background: none;
+    border: none;
+    text-align: right;
+    color: var(--color-white);
+    flex-grow: 1;
+    line-height: 30px;
+}
+
+.profile__button-edit {
+    color: var(--color-white);
+}
+
+.profile__logout {
+    color: var(--color-error);
+}
+
+.profile__bottom button.profile__button-save {
+    background-color: var(--color-url);
+    color: var(--color-white);
+    height: 45px;
+}
+
+.profile__bottom button.profile__button-save:disabled {
+    background-color: var(--color-text);
+}
+
+.profile__input:focus,
+textarea:focus {
+    outline: none;
+    background: var(--color-dark-outline);
+}
+
+@media (max-width: 1279px) {
+    .profile__form {
+        margin-top: 75px;
+    }
+
+    section.profile {
+        top: 220px;
+    }
+
+    .profile__value-name label {
+        align-self: center;
+    }
+
+    .profile__bottom {
+        top: 211px;
+    }
+}
+
+@media (max-width: 767px) {
+    section.profile {
+        top: 54px;
+    }
+
+    .profile__form {
+        min-width: 260px;
+        margin-top: 60px;
+    }
+
+    .profile__bottom {
+        top: 377px;
+    }
+
+    .profile__value-name label {
+        align-self: self-start;
+    }
+
+    .profile__bottom button {
+        font-size: 12px;
+        line-height: 15px;
+    }
+}
