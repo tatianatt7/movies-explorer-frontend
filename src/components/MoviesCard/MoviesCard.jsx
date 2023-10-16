@@ -1,33 +1,52 @@
+import { useLocation } from 'react-router-dom';
+import { MOVIES_API_URL } from '../../utils/MoviesApi';
 import './MoviesCard.css';
+
+const formatDuration = (duration) => {
+  const hours = Math.floor(duration / 60);
+  const minutes = duration % 60;
+  return `${hours}ч ${minutes}м`;
+};
 
 const MoviesCard = ({
   movie,
-  isShowSaveBtn = true,
-  isShowDeleteBtn = false,
+  isSaved,
+  onDelete,
+  onSave,
 }) => {
+  const location = useLocation();
+
+  const handleLikeClick = () => {
+    if (isSaved(movie)) {
+      onDelete(movie);
+    } else {
+      onSave(movie);
+    }
+  };
+
   return (
     <li className="card">
-      <a className="card__link" target="_blank" href="/#">
+      <a className="card__link" target="_blank" href={movie.trailerLink}>
         <img
-          src={movie.img}
-          alt={`Обложка фильма: ${movie.name}`}
+          src={location.pathname == '/saved-movies' ? movie.image : `${MOVIES_API_URL}${movie.image.url}`}
+          alt={`Обложка фильма: ${movie.nameRU}`}
           className="card__image"
         />
       </a>
       <div className="card__description">
-        <h2 className="card__name">{movie.name}</h2>
-        <span className="card__duration">{movie.duration}</span>
+        <h2 className="card__name">{movie.nameRU}</h2>
+        <span className="card__duration">{formatDuration(movie.duration)}</span>
       </div>
-      {isShowSaveBtn && (
+      {location.pathname == '/movies' ? (
         <button
           type="button"
+          onClick={handleLikeClick}
           className={`card__btn ${
-            movie.isSaved ? 'card__btn-saved' : 'card__btn-unsave'
+            isSaved(movie) ? 'card__btn-saved' : 'card__btn-unsave'
           }`}
         />
-      )}
-      {isShowDeleteBtn && (
-        <button type="button" className="card__btn-delete"></button>
+      ) : (
+        <button type="button" className="card__btn-delete" onClick={() => onDelete(movie)}></button>
       )}
     </li>
   );

@@ -1,21 +1,70 @@
-import './Profile.css';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from "react";
+import "./Profile.css";
 
-const Profile = ({ onSignOut, isProfileSaved }) => {
-  const navigate = useNavigate();
-  const [edit, setStateEdit] = useState(false);
-  const [values, setValues] = useState({ email: 'example@mail.net' });
+import Header from '../Header/Header';
+import validator from "validator";
+import UserContext from "../../context/userContext";
+import {useFormValidate  } from "../../hooks/useFormValidation";
 
-  function is_disabled(v) {
-    return !'name' in v || !v.name;
-  }
+const validateName = (name) => {
+  const pattern = /^[A-Za-zА-Яа-я\s-]+$/;
+  return pattern.test(name);
+};
+
+const validateEmail = (email) => {
+  return validator.isEmail(email);
+};
+
+const Profile = ({ loggedIn, api }) => {
+  const [isSubmited, setSubmited] = useState(false);
+  const [change, setChange] = useState(false);
+  const { currentUser: user, setCurrentUser } = useContext(UserContext);
+  const { values, handleChange, errors, setErrors, isValid, setValues } =
+    useFormValidate();
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    if (user.name) {
+      setValues({ ...user });
+    }
+  }, [user]);
+
+  const handleSignOut = async () => await api.signout();
+
+  const isChanged = (key, val) => val[key] === values[key];
+
+  const handleUpdateProfile = async (e) => {
+    e.preventDefault();
+    setSubmited(true);
+    setError("");
+
+    try {
+      const resp = await api.updateProfile(values);
+      if (Object.keys(resp).length) {
+        setCurrentUser(resp);
+        setChange(false);
+      }
+    } catch (error) {
+      if (error.message) {
+        if (error.message === "Validation failed") {
+          error.validation.body.keys.map((key) => {
+            setErrors((e) => ({ ...e, [key]: error.validation.body.message }));
+          });
+        }
+
+        setError(error.message);
+      }
+    } finally {
+      setSubmited(false);
+    }
+  };
 
   return (
     <>
+    <Header loggedIn={loggedIn} />
       <section className="profile">
         <h1 className="profile__title">Привет, {values.name}!</h1>
-        <form className="profile__form form">
+        <form className="profile__form form" onSubmit={handleUpdateProfile}>
           <div className="profile__value profile__value-name">
             <label className="profile__label">Имя</label>
             <input
@@ -26,10 +75,21 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
               minLength={2}
               maxLength={40}
               required
+              disabled={!change}
               value={values.name || ''}
-              onChange={e => setValues({ ...values, name: e.target.value })}
+              onChange={(e) => {
+                if (!validateName(e.target.value)) {
+                  e.target.setCustomValidity(
+                    "Имя может содержать только латиницу, кириллицу, пробел или дефис."
+                  );
+                } else {
+                  e.target.setCustomValidity("");
+                }
+                handleChange(e);
+              }}
             />
           </div>
+          <div className="form__error">{errors.name}</div>
           <hr></hr>
           <div className="profile__value profile__value-password">
             <label className="profile__label">E-mail</label>
@@ -40,20 +100,28 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
               className="profile__input"
               required
               value={values.email || ''}
-              onChange={e => setValues({ ...values, email: e.target.value })}
+              onChange={(e) => {
+                if (!validateEmail(e.target.value)) {
+                  e.target.setCustomValidity("Введите корректный email.");
+                } else {
+                  e.target.setCustomValidity("");
+                }
+                handleChange(e);
+              }}
+              disabled={!change}
             />
           </div>
-          <div className="form__error"></div>
-          {isProfileSaved ? (
-            <div className="profile__success">Профиль успешно обновлен!</div>
-          ) : (
-            ''
-          )}
+          <div className="form__error">{errors.email}</div>
+          <div className="form__error">{error}</div>
           <div className="profile__bottom">
-            {edit ? (
+            {change ? (
               <button
                 type="submit"
-                disabled={is_disabled(values)}
+                disabled={
+                  !isValid ||
+                  isSubmited ||
+                  (isChanged("name", user) && isChanged("email", user))
+                }
                 className="profile__button-save"
               >
                 Сохранить
@@ -63,13 +131,16 @@ const Profile = ({ onSignOut, isProfileSaved }) => {
                 <button
                   type="button"
                   className="profile__button-edit"
-                  onClick={() => setStateEdit(!edit)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setChange(true);
+                }}
                 >
                   Редактировать
                 </button>
                 <button
                   type="button"
-                  onClick={() => navigate('/')}
+                  onClick={handleSignOut}
                   className="profile__logout"
                 >
                   Выйти из аккаунта
