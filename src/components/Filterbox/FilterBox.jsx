@@ -1,7 +1,7 @@
 import React from 'react';
 import './FilterBox.css';
 
-function FilterBox({ onFilterMovies, isshortMovies }) {
+function FilterBox({ onFilter, isShortFilm }) {
   return (
     <>
       <div className="filter">
@@ -9,8 +9,8 @@ function FilterBox({ onFilterMovies, isshortMovies }) {
           className="filter__box"
           type="checkbox"
           id="checkbox"
-          onChange={onFilterMovies}
-          checked={isshortMovies}
+          onChange={onFilter}
+          checked={isShortFilm}
         ></input>
         <label htmlFor="checkbox" className="filter__label">
           Короткометражки
@@ -19,4 +19,5 @@ function FilterBox({ onFilterMovies, isshortMovies }) {
     </>
   );
 }
+
 export default FilterBox;
