@@ -41,7 +41,7 @@ const Register = ({ loggedIn, setLoggedIn, api }) => {
         }
       }
     } catch (error) {
-      setResponseError(error);
+      setResponseError(error.message || 'Произошла ошибка');
     } finally {
       setIsSended(false);
     }
