@@ -124,11 +124,11 @@ const Register = ({ loggedIn, setLoggedIn, api }) => {
           required
         />
         <div className="form__error">{errors.password}</div>
+        <div className="form__error">{responseError}</div>
         <button className="register__button" type="submit" disabled={!isValid || isSended}>
           Зарегистрироваться
         </button>
       </form>
-      <div className="form__error">{responseError}</div>
       <div className="register__bottom">
         <span>Уже зарегистрированы?</span>
         <Link to="/signin" className="register__link">

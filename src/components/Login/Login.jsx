@@ -86,11 +86,11 @@ const Login = ({ loggedIn, setLoggedIn, api }) => {
           onChange={handleChange}
         />
         <span className="form__error">{errors.password}</span>
+        <span className="form__error">{responseError}</span>
         <button className="login__btn" type="submit" disabled={!isValid || isSended}>
           Войти
         </button>
       </form>
-      <span className="form__error">{responseError}</span>
       <div className="login__bottom">
         <span>Ещё не зарегистрированы?</span>
         <a href="/signup" className="login__link">
