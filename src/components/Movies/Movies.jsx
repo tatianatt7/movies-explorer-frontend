@@ -100,6 +100,10 @@ const Movies = ({
       return short && (ru.includes(s) || en.includes(s));
     });
 
+    if (filtered.length === 0) {
+      setError('Ничего не найдено');
+    }
+
     setFiltredMovies(filtered);
 
     setTimeout(() => setLoading(false), 300);
@@ -146,14 +150,14 @@ const Movies = ({
             onSearch={handleSearch}
           />
           {error && !loading && <div className="movies-error">{error}</div>}
-          {movies.length > 0 ? (
+          {!loading && !error && movies.length > 0 && (
             <MoviesCardList
               movies={filteredMovies}
               savedMovies={savedMovies}
               onSave={handleSave}
               onDelete={handleDelete}
             />
-          ) : <div className="cards">Ничего не найдено</div>}
+          )}
         </div>
       </section>
       <Footer />

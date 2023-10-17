@@ -1,23 +1,24 @@
-import { useContext, useEffect, useState } from "react";
-import "./Profile.css";
+import { useContext, useEffect, useState } from 'react';
+import './Profile.css';
 
 import Header from '../Header/Header';
-import validator from "validator";
-import UserContext from "../../context/userContext";
-import {useFormValidate  } from "../../hooks/useFormValidation";
+import validator from 'validator';
+import UserContext from '../../context/userContext';
+import { useFormValidate } from '../../hooks/useFormValidation';
 
-const validateName = (name) => {
+const validateName = name => {
   const pattern = /^[A-Za-zА-Яа-я\s-]+$/;
   return pattern.test(name);
 };
 
-const validateEmail = (email) => {
+const validateEmail = email => {
   return validator.isEmail(email);
 };
 
 const Profile = ({ loggedIn, api }) => {
   const [isSubmited, setSubmited] = useState(false);
   const [change, setChange] = useState(false);
+  const [isProfileSaved, setProfileSaved] = useState(false);
   const { currentUser: user, setCurrentUser } = useContext(UserContext);
   const { values, handleChange, errors, setErrors, isValid, setValues } =
     useFormValidate();
@@ -33,22 +34,24 @@ const Profile = ({ loggedIn, api }) => {
 
   const isChanged = (key, val) => val[key] === values[key];
 
-  const handleUpdateProfile = async (e) => {
+  const handleUpdateProfile = async e => {
     e.preventDefault();
     setSubmited(true);
-    setError("");
+    setError('');
+    setProfileSaved(false);
 
     try {
       const resp = await api.updateProfile(values);
       if (Object.keys(resp).length) {
         setCurrentUser(resp);
+        setProfileSaved(true);
         setChange(false);
       }
     } catch (error) {
       if (error.message) {
-        if (error.message === "Validation failed") {
-          error.validation.body.keys.map((key) => {
-            setErrors((e) => ({ ...e, [key]: error.validation.body.message }));
+        if (error.message === 'Validation failed') {
+          error.validation.body.keys.map(key => {
+            setErrors(e => ({ ...e, [key]: error.validation.body.message }));
           });
         }
 
@@ -61,7 +64,7 @@ const Profile = ({ loggedIn, api }) => {
 
   return (
     <>
-    <Header loggedIn={loggedIn} />
+      <Header loggedIn={loggedIn} />
       <section className="profile">
         <h1 className="profile__title">Привет, {values.name}!</h1>
         <form className="profile__form form" onSubmit={handleUpdateProfile}>
@@ -77,13 +80,13 @@ const Profile = ({ loggedIn, api }) => {
               required
               disabled={!change}
               value={values.name || ''}
-              onChange={(e) => {
+              onChange={e => {
                 if (!validateName(e.target.value)) {
                   e.target.setCustomValidity(
-                    "Имя может содержать только латиницу, кириллицу, пробел или дефис."
+                    'Имя может содержать только латиницу, кириллицу, пробел или дефис.',
                   );
                 } else {
-                  e.target.setCustomValidity("");
+                  e.target.setCustomValidity('');
                 }
                 handleChange(e);
               }}
@@ -100,11 +103,11 @@ const Profile = ({ loggedIn, api }) => {
               className="profile__input"
               required
               value={values.email || ''}
-              onChange={(e) => {
+              onChange={e => {
                 if (!validateEmail(e.target.value)) {
-                  e.target.setCustomValidity("Введите корректный email.");
+                  e.target.setCustomValidity('Введите корректный email.');
                 } else {
-                  e.target.setCustomValidity("");
+                  e.target.setCustomValidity('');
                 }
                 handleChange(e);
               }}
@@ -113,6 +116,11 @@ const Profile = ({ loggedIn, api }) => {
           </div>
           <div className="form__error">{errors.email}</div>
           <div className="form__error">{error}</div>
+          {isProfileSaved ? (
+            <div className="profile__success">Профиль успешно обновлен!</div>
+          ) : (
+            ''
+          )}
           <div className="profile__bottom">
             {change ? (
               <button
@@ -120,7 +128,7 @@ const Profile = ({ loggedIn, api }) => {
                 disabled={
                   !isValid ||
                   isSubmited ||
-                  (isChanged("name", user) && isChanged("email", user))
+                  (isChanged('name', user) && isChanged('email', user))
                 }
                 className="profile__button-save"
               >
@@ -131,10 +139,11 @@ const Profile = ({ loggedIn, api }) => {
                 <button
                   type="button"
                   className="profile__button-edit"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setChange(true);
-                }}
+                  onClick={e => {
+                    e.preventDefault();
+                    setProfileSaved(false);
+                    setChange(true);
+                  }}
                 >
                   Редактировать
                 </button>

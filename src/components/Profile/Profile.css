@@ -105,6 +105,13 @@ textarea:focus {
     background: var(--color-dark-outline);
 }
 
+.profile__success {
+    padding: 14px 0px;
+    text-align: center;
+    background-color: var(--color-dark-bg);
+    margin-top: 18px;
+}
+
 @media (max-width: 1279px) {
     .profile__form {
         margin-top: 75px;

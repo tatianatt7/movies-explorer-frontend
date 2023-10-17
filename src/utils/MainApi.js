@@ -1,5 +1,12 @@
 import { RequestError } from "./RequestError";
-import { KEY_JWT } from "./constants";
+import {
+  KEY_JWT,
+  KEY_FILTRED,
+  KEY_IS_SHORT,
+  KEY_MOVIES,
+  KEY_SEARCH,
+  KEY_VISIBLE,
+} from "./constants";
 
 class MainApi {
   constructor({
@@ -15,9 +22,23 @@ class MainApi {
     this.setLoggedIn = setLoggedIn;
   }
 
+  onLoggedOut() {
+    this.setLoggedIn(false);
+    localStorage.removeItem(KEY_JWT);
+    localStorage.removeItem(KEY_FILTRED);
+    localStorage.removeItem(KEY_IS_SHORT);
+    localStorage.removeItem(KEY_MOVIES);
+    localStorage.removeItem(KEY_SEARCH);
+    localStorage.removeItem(KEY_VISIBLE);
+  }
+
   async handleResponse(response) {
     if (response.ok) {
       return await response.json();
+    }
+
+    if (response.status === 401) {
+      this.onLoggedOut();
     }
 
     throw new RequestError({
@@ -102,6 +123,8 @@ class MainApi {
       method: "DELETE",
       headers: this.headers,
     });
+
+    this.onLoggedOut();
 
     return this.handleResponse(response);
   };
