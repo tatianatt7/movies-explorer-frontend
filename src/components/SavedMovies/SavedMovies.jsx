@@ -61,16 +61,22 @@ const SavedMovies = ({ loggedIn, api, movies, setMovies }) => {
 
           <section className="cards">
             <ul className="cards__list">
-              {filtredMovies.length
-                ? filtredMovies.map(movie => (
-                    <MoviesCard
-                      key={movie._id || movie.movieId}
-                      movie={movie}
-                      isSaved={() => true}
-                      onDelete={handleDelete}
-                    />
-                  ))
-                : 'Не найдено'}
+              {filtredMovies.length ? (
+                filtredMovies.map(movie => (
+                  <MoviesCard
+                    key={movie._id || movie.movieId}
+                    movie={movie}
+                    isSaved={() => true}
+                    onDelete={handleDelete}
+                  />
+                ))
+              ) : (
+                <>
+                  <li></li>
+                  <li>Ничего не найдено</li>
+                  <li></li>
+                </>
+              )}
             </ul>
           </section>
         </div>

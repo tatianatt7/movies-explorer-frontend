@@ -63,10 +63,10 @@ const MoviesCardList = ({
   return (
     <section className="cards">
       <ul className="cards__list">
-        {movies.slice(0, visibleCardCount).map((movie, i) => {
+        {movies.slice(0, visibleCardCount).map((movie) => {
           return (
             <MoviesCard
-              key={i}
+              key={movie.id}
               movie={movie}
               isSaved={isSaved}
               onSave={onSave}

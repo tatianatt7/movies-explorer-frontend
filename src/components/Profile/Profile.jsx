@@ -66,7 +66,7 @@ const Profile = ({ loggedIn, api }) => {
     <>
       <Header loggedIn={loggedIn} />
       <section className="profile">
-        <h1 className="profile__title">Привет, {values.name}!</h1>
+        <h1 className="profile__title">Привет, {user.name}!</h1>
         <form className="profile__form form" onSubmit={handleUpdateProfile}>
           <div className="profile__value profile__value-name">
             <label className="profile__label">Имя</label>
