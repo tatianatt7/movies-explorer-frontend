@@ -7,6 +7,7 @@ import './Register.css';
 import logo from '../../images/logo.svg';
 
 const Register = ({ loggedIn, setLoggedIn, api }) => {
+  const [isSended, setIsSended] = useState(false);
   const { values, handleChange, errors, isValid } = useFormValidate();
   const [responseError, setResponseError] = useState('');
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Register = ({ loggedIn, setLoggedIn, api }) => {
     if (!isValid) return;
 
     try {
+      setIsSended(true);
       const signupResponse = await api.signup(values);
 
       // После регистрации авторизуем пользователя
@@ -40,6 +42,8 @@ const Register = ({ loggedIn, setLoggedIn, api }) => {
       }
     } catch (error) {
       setResponseError(error);
+    } finally {
+      setIsSended(false);
     }
   };
 
@@ -120,7 +124,7 @@ const Register = ({ loggedIn, setLoggedIn, api }) => {
           required
         />
         <div className="form__error">{errors.password}</div>
-        <button className="register__button" type="submit" disabled={!isValid}>
+        <button className="register__button" type="submit" disabled={!isValid || isSended}>
           Зарегистрироваться
         </button>
       </form>

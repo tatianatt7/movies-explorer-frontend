@@ -7,6 +7,7 @@ import validator from 'validator';
 import './Login.css';
 
 const Login = ({ loggedIn, setLoggedIn, api }) => {
+  const [isSended, setIsSended] = useState(false);
   const { values, handleChange, errors, isValid } = useFormValidate();
   const [responseError, setResponseError] = useState('');
   const navigate = useNavigate();
@@ -23,6 +24,7 @@ const Login = ({ loggedIn, setLoggedIn, api }) => {
     if (!isValid) return;
 
     try {
+      setIsSended(true);
       const response = await api.signin(values);
 
       if (response.token) {
@@ -33,6 +35,8 @@ const Login = ({ loggedIn, setLoggedIn, api }) => {
       }
     } catch (error) {
       setResponseError(error.message || 'Произошла ошибка');
+    } finally {
+      setIsSended(false);
     }
   };
 
@@ -82,7 +86,7 @@ const Login = ({ loggedIn, setLoggedIn, api }) => {
           onChange={handleChange}
         />
         <span className="form__error">{errors.password}</span>
-        <button className="login__btn" type="submit" disabled={!isValid}>
+        <button className="login__btn" type="submit" disabled={!isValid || isSended}>
           Войти
         </button>
       </form>
